@@ -345,10 +345,10 @@ __e2setcost( 30 )
 
 e2function number entity:stargateGetRingAngle()
 	if not IsValid(this) or not this.IsStargate or not(isOwner(self,this) or self.player:IsAdmin()) then return -1 end
-	local vg = {"stargate_movie","stargate_sg1","stargate_infinity","stargate_universe"};
+	local vg = {"stargate_movie","stargate_sg1","stargate_infinity","stargate_universe","sg_movie","sg_sg1","sg_infinity","sg_universe"};
 	local class = this:GetClass();
 	if (not table.HasValue(vg,class)) then return -1 end
-	if (class=="stargate_universe") then
+	if (class=="stargate_universe" or class=="sg_universe") then
 		if (IsValid(this.Gate)) then
 			local angle = tonumber(math.NormalizeAngle(this.Gate:GetLocalAngles().r));
 			if (angle<0) then angle = angle+360; end;
@@ -367,10 +367,10 @@ end
 
 e2function number wirelink:stargateGetRingAngle()
 	if not IsValid(this) or not this.IsStargate then return -1 end
-	local vg = {"stargate_movie","stargate_sg1","stargate_infinity","stargate_universe"};
+	local vg = {"stargate_movie","stargate_sg1","stargate_infinity","stargate_universe","sg_movie","sg_sg1","sg_infinity","sg_universe"};
 	local class = this:GetClass();
 	if (not table.HasValue(vg,class)) then return -1 end
-	if (class=="stargate_universe") then
+	if (class=="stargate_universe" or class=="sg_universe") then
 		if (IsValid(this.Gate)) then
 			local angle = tonumber(math.NormalizeAngle(this.Gate:GetLocalAngles().r));
 			if (angle<0) then angle = angle+360; end;
